@@ -12,6 +12,7 @@ public class CatFlap {
     public CatFlap() {
         state = new Closed(this);
         this.catsAllowed = 5;
+        this.catList = new ArrayList<>();
     }
 
     public CatFlap(ArrayList<Cat> catList) throws CatFlapException {
@@ -56,6 +57,7 @@ public class CatFlap {
     public String getMode() {
         //state.getClass();
         System.out.println("Lemmens tilstand er " + state.getClass());
+        return "";
     }
 
     public void setState(State state) {
