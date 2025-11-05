@@ -1,6 +1,7 @@
 package States;
 
 import main.Cat;
+import main.CatFlap;
 
 public class Closed implements State{
     private final CatFlap catFlap;
