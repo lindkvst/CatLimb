@@ -1,24 +1,37 @@
 package main;
 
 import java.util.ArrayList;
+import States.*;
 
 public class CatFlap {
     private ArrayList<Cat> catList;
     private State state;
     private int catsAllowed;
 
-
-    public CatFlap(ArrayList<Cat> catList, int catsAllowed) {
-        this.catList = catList;
+    public CatFlap() {
         state = new Closed(this);
-        this.catsAllowed = catsAllowed;
+        this.catsAllowed = 5;
     }
 
-    public void addCat(Cat cat) throws CatFlapException {
-        if (catList.size() == catsAllowed) {
+    public CatFlap(ArrayList<Cat> catList) throws CatFlapException {
+        if (catList.size() >= 5) {
             throw new CatFlapException("Systemfejl: Du kan ikke tilføje mere end " + catsAllowed + " katte");
         } else {
-            catList.add(cat);
+            this.catList = catList;
+            state = new Closed(this);
+            catsAllowed = 5;
+        }
+    }
+
+
+
+    public void addCat(Cat c) throws CatFlapException {
+        if (catList.size() == catsAllowed) {
+            throw new CatFlapException("Systemfejl: Du kan ikke tilføje mere end " + catsAllowed + " katte");
+        } else if (CatCheck.catCheck(this, c)) {
+            throw new CatFlapException("Systemfejl: katten findes allede");
+        } else {
+            catList.add(c);
         }
     }
 
