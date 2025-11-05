@@ -46,11 +46,11 @@ public class CatFlap {
         return catList;
     }
 
-    public String getMode() {
-        String mode = "Test";
+    public String getState() {
+        String state = this.state.getClass().getSimpleName();
         //state.getClass();
-        //System.out.println("Lemmens tilstand er " + state.getClass());
-        return mode;
+        System.out.println("Lemmens tilstand er " + state);
+        return state;
 
     }
 
