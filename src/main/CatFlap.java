@@ -12,6 +12,7 @@ public class CatFlap {
     public CatFlap() {
         state = new Closed(this);
         this.catsAllowed = 5;
+        this.catList = new ArrayList<>();
     }
 
     public CatFlap(ArrayList<Cat> catList) throws CatFlapException {

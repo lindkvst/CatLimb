@@ -1,15 +1,16 @@
 package States;
 
-import main.*;
+import main.Cat;
+import main.CatFlap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OpenTest {
+class InOnlyTest {
     Cat cat;
     Cat cat2;
     Cat cat3;
-    Open open;
+    InOnly inOnly;
 
     {
         try {
@@ -39,18 +40,19 @@ class OpenTest {
 
     @Test
     void enter() {
-        open = new Open(catFlap);
+        inOnly = new InOnly(catFlap);
         catFlap.addCat(cat);
-        assertTrue(open.enter(cat));
-        assertFalse(open.enter(cat2));
-        assertFalse(open.enter(cat3));
+        assertTrue(inOnly.enter(cat));
+        assertFalse(inOnly.enter(cat2));
+        assertFalse(inOnly.enter(cat3));
     }
 
     @Test
     void exit() {
-        open = new Open(catFlap);
+        inOnly = new InOnly(catFlap);
         catFlap.addCat(cat);
-        assertTrue(open.exit(cat));
-        assertFalse(open.exit(cat2));
+        assertFalse(inOnly.exit(cat));
+        assertFalse(inOnly.exit(cat2));
+        assertFalse(inOnly.exit(cat3));
     }
 }
