@@ -41,14 +41,6 @@ public class CatFlap {
         catList.removeAll(catList);
     }
 
-    public Cat getCat(Cat catName) {
-        for (Cat c : catList) {
-            if (c.equals(catName)) {
-                return c;
-                break;
-            }
-        }
-    }
 
     public ArrayList<Cat> getCatList() {
         return catList;
