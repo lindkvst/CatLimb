@@ -14,27 +14,38 @@ public class CatFlap {
         this.catsAllowed = catsAllowed;
     }
 
-    public void addCat(Cat cat) {
-        //something
+    public void addCat(Cat cat) throws CatFlapException {
+        if (catList.size() == catsAllowed) {
+            throw new CatFlapException("Systemfejl: Du kan ikke tilføje mere end " + catsAllowed + " katte");
+        } else {
+            catList.add(cat);
+        }
     }
 
     public void clearRegisteredCats() {
-        //something
+        catList.removeAll(catList);
     }
 
-    public Cat getCat(String catName) {
+    public Cat getCat(Cat catName) {
         for (Cat c : catList) {
-
+            if (c.equals(catName)) {
+                return c;
+                break;
+            }
         }
+    }
+
+    public ArrayList<Cat> getCatList() {
+        return catList;
     }
 
     public String getMode() {
         //state.getClass();
-        System.out.println("Lemmens til");
+        System.out.println("Lemmens tilstand er " + state.getClass());
     }
 
-    public void setState() {
-
+    public void setState(State state) {
+        //Ændrer state
     }
 
 }
