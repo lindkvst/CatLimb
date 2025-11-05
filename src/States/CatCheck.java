@@ -4,7 +4,7 @@ import main.Cat;
 import main.CatFlap;
 
 public class CatCheck {
-    static boolean catCheck(CatFlap catFlap, Cat cat){
+    public static boolean catCheck(CatFlap catFlap, Cat cat){
         if(cat.getChipID().equalsIgnoreCase("Lucifer")){
             return false;
         }
