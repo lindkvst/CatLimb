@@ -17,6 +17,8 @@ public class CatFlap {
     public void addCat(Cat cat) throws CatFlapException {
         if (catList.size() == catsAllowed) {
             throw new CatFlapException("Systemfejl: Du kan ikke tilføje mere end " + catsAllowed + " katte");
+        } else {
+            catList.add(cat);
         }
     }
 
