@@ -1,12 +1,16 @@
 package main;
 
+import org.junit.jupiter.api.Test;
+import util.CatFlapException;
+import util.CatFlapValidator;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CatFlapTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testAddCatMax() {
 
 
@@ -18,6 +22,8 @@ class CatFlapTest {
         catFlap.addCat(new Cat("Cat3"));
         catFlap.addCat(new Cat("Cat4"));
         catFlap.addCat(new Cat("Cat5"));
+
+        assertThrows(CatFlapException.class, () -> catFlap.addCat(new Cat("Cat6")));
 
 
 

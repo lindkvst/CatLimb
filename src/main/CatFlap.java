@@ -47,9 +47,11 @@ public class CatFlap {
     }
 
     public String getMode() {
+        String mode = "Test";
         //state.getClass();
-        System.out.println("Lemmens tilstand er " + state.getClass());
-        return "";
+        //System.out.println("Lemmens tilstand er " + state.getClass());
+        return mode;
+
     }
 
     public void setState(State state) {
