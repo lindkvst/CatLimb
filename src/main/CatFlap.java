@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import States.*;
+import util.*;
 
 public class CatFlap {
     private ArrayList<Cat> catList;
