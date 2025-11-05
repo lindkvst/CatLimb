@@ -2,18 +2,24 @@ package util;
 
 import main.Cat;
 
-public class CatFlapValidator {
-    private final Cat cat;
+import java.util.List;
 
-    public CatFlapValidator(Cat cat) {
-        this.cat = cat;
+public class CatFlapValidator {
+
+    public static void validateCat(Cat cat, List<Cat> catList, int catsAllowed) {
+        validateChipID(cat.getChipID());
+        validateCatLimit(catList, catsAllowed);
     }
 
-    public static Throwable checkID(Cat cat) throws CatFlapException{
-        if(cat.getChipID().isBlank()){
-            throw new CatFlapException ("Chip id must not be blank");
-        }
-        return null;
+
+    private static void validateCatLimit(List<Cat> catlist, int catsAllowed) {
+        if(catlist.size() >= catsAllowed)
+            throw new CatFlapException("No more than 5 cats allowed");
+    }
+
+    private static void validateChipID(String chipID) {
+        if(chipID == null || chipID.isBlank())
+            throw new CatFlapException("Chip id must not be empty!");
     }
 
 
