@@ -112,4 +112,18 @@ class CatFlapTest {
         assertTrue(catFlap.getState().equalsIgnoreCase("Closed"));
     }
 
+    @Test
+    void setStateString(){
+        CatFlap catFlap = new CatFlap();
+        assertTrue(catFlap.getState().equalsIgnoreCase("Closed"));
+        catFlap.setState("inonly");
+        assertTrue(catFlap.getState().equalsIgnoreCase("InOnly"));
+        catFlap.setState("OuTOnLY");
+        assertTrue(catFlap.getState().equalsIgnoreCase("OutOnly"));
+        catFlap.setState("OPEN");
+        assertTrue(catFlap.getState().equalsIgnoreCase("Open"));
+        assertFalse(catFlap.getState().equalsIgnoreCase("Closed"));
+
+    }
+
 }
