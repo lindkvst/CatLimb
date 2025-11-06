@@ -17,13 +17,14 @@ public class CatFlap {
         this.catsAllowed = 5;
     }
 
-    public CatFlap(ArrayList<Cat> catList) {
-            this.catList = new ArrayList<>();
-            this.state = new Closed(this);
-            this.catsAllowed = 5;
-
-            for(Cat c : catList){
-                addCat(c);
+    public CatFlap(ArrayList<Cat> catList) throws CatFlapException {
+        int maxCats = 5;
+        if (catList.size() > maxCats) {
+            throw new CatFlapException("Systemfejl: Du kan ikke tilføje mere end " + maxCats + " katte");
+        } else {
+            this.catList = catList;
+            state = new Closed(this);
+            catsAllowed = 5;
         }
     }
 
@@ -46,14 +47,12 @@ public class CatFlap {
 
     public String getState() {
         String state = this.state.getClass().getSimpleName();
-        //state.getClass();
-        System.out.println("Lemmens tilstand er " + state);
+       // System.out.println("Lemmens tilstand er " + state);
         return state;
-
     }
 
     public void setState(State state) {
-        //Ændrer state
+        this.state = state;
     }
 
 }
