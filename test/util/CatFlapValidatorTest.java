@@ -9,6 +9,6 @@ class CatFlapValidatorTest {
 
     @Test
     void checkID() {
-        assertThrows(CatFlapException.class, () -> new CatFlapValidator(new Cat (" ")));
+        assertThrows(CatFlapException.class, CatFlapValidator::new);
     }
 }

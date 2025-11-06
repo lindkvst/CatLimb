@@ -1,6 +1,8 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import States.*;
 import util.*;
 
@@ -9,10 +11,10 @@ public class CatFlap {
     private State state;
     private int catsAllowed;
 
-    public CatFlap() {
-        state = new Closed(this);
-        this.catsAllowed = 5;
+    public CatFlap(){
         this.catList = new ArrayList<>();
+        this.state = new Closed(this);
+        this.catsAllowed = 5;
     }
 
     public CatFlap(ArrayList<Cat> catList) throws CatFlapException {
@@ -29,13 +31,9 @@ public class CatFlap {
 
 
     public void addCat(Cat c) throws CatFlapException {
-        if (catList.size() == catsAllowed) {
-            throw new CatFlapException("Systemfejl: Du kan ikke tilføje mere end " + catsAllowed + " katte");
-        } else if (CatCheck.catCheck(this, c)) {
-            throw new CatFlapException("Systemfejl: katten findes allede");
-        } else {
-            catList.add(c);
-        }
+        CatFlapValidator.validateCat(c, catList, catsAllowed);
+        catList.add(c);
+
     }
 
     public void clearRegisteredCats() {
