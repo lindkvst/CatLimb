@@ -79,4 +79,21 @@ public class CatFlap {
         }
     }
 
+    public void CatEntry(Cat cat){
+        if(state.enter(cat)){
+            System.out.println(cat + " is allowed to enter!");
+        }
+        else{
+            System.out.println(cat + "is not allowed to enter!");
+        }
+    }
+    public void CatExit(Cat cat){
+        if(state.exit(cat)){
+            System.out.println(cat + " is allowed to exit!");
+        }
+        else{
+            System.out.println(cat + " is not allowed to exit!");
+        }
+    }
+
 }
