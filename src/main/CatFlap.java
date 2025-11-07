@@ -79,7 +79,7 @@ public class CatFlap {
         }
     }
 
-    public void CatEntry(Cat cat){
+    public void catEntry(Cat cat){
         if(state.enter(cat)){
             System.out.println(cat + " is allowed to enter!");
         }
@@ -87,7 +87,7 @@ public class CatFlap {
             System.out.println(cat + "is not allowed to enter!");
         }
     }
-    public void CatExit(Cat cat){
+    public void catExit(Cat cat){
         if(state.exit(cat)){
             System.out.println(cat + " is allowed to exit!");
         }
