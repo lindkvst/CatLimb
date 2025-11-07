@@ -24,6 +24,7 @@ public class CatFlap {
 
             for(Cat c : catList){
                 addCat(c);
+
         }
     }
 
