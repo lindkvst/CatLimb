@@ -15,22 +15,10 @@ class ClosedTest {
     {
         try {
             cat = new Cat("Bob");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    {
-        try{
             cat2 = new Cat("Alice");
-        }catch(Exception e){
-            throw new RuntimeException(e);
-        }
-    }
-    {
-        try{
             cat3 = new Cat("Lucifer");
-        }catch(Exception e){
+
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
