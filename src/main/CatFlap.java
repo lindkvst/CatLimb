@@ -47,14 +47,55 @@ public class CatFlap {
 
     public String getState() {
         String state = this.state.getClass().getSimpleName();
-        //state.getClass();
-        System.out.println("Lemmens tilstand er " + state);
+       // System.out.println("Lemmens tilstand er " + state);
         return state;
-
     }
 
     public void setState(State state) {
-        //Ændrer state
+        this.state = state;
+    }
+
+    /**
+     * overloaded setState using String input
+     * @param newState String like: [Closed, InOnly, OutOnly, Open]
+     */
+    public void setState(String newState){
+        newState = newState.toLowerCase();
+        switch(newState){
+            case "closed":
+                this.state = new Closed(this);
+                break;
+            case "inonly":
+                this.state = new InOnly(this);
+                break;
+            case "outonly":
+                this.state = new OutOnly(this);
+                break;
+            case "open":
+                this.state = new Open(this);
+                break;
+            default:
+                throw new IllegalArgumentException("state is still " + this.state.getClass().getSimpleName());
+        }
+        System.out.println("State is changed to: " + this.state.getClass().getSimpleName());
+
+    }
+
+    public void catEntry(Cat cat){
+        if(state.enter(cat)){
+            System.out.println(cat + " is allowed to enter!");
+        }
+        else{
+            System.out.println(cat + " is not allowed to enter!");
+        }
+    }
+    public void catExit(Cat cat){
+        if(state.exit(cat)){
+            System.out.println(cat + " is allowed to exit!");
+        }
+        else{
+            System.out.println(cat + " is not allowed to exit!");
+        }
     }
 
 }

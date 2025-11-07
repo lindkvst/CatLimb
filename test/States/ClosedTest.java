@@ -1,14 +1,45 @@
 package States;
 
+import main.Cat;
+import main.CatFlap;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClosedTest {
+    Cat cat;
+    Cat cat2;
+    Cat cat3;
+    Closed closed;
 
-    @org.junit.jupiter.api.Test
-    void enter() {
+    {
+        try {
+            cat = new Cat("Bob");
+            cat2 = new Cat("Alice");
+            cat3 = new Cat("Lucifer");
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    @org.junit.jupiter.api.Test
+    CatFlap catFlap = new CatFlap();
+
+    @Test
+    void enter() {
+        closed = new Closed(catFlap);
+        catFlap.addCat(cat);
+        assertFalse(closed.exit(cat));
+        assertFalse(closed.exit(cat2));
+        assertFalse(closed.exit(cat3));
+    }
+
+    @Test
     void exit() {
+        closed = new Closed(catFlap);
+        catFlap.addCat(cat);
+        assertFalse(closed.exit(cat));
+        assertFalse(closed.exit(cat2));
+        assertFalse(closed.exit(cat3));
     }
 }
