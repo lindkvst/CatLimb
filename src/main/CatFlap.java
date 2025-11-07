@@ -17,14 +17,14 @@ public class CatFlap {
         this.catsAllowed = 5;
     }
 
-    public CatFlap(ArrayList<Cat> catList) throws CatFlapException {
-        int maxCats = 5;
-        if (catList.size() > maxCats) {
-            throw new CatFlapException("Systemfejl: Du kan ikke tilføje mere end " + maxCats + " katte");
-        } else {
-            this.catList = catList;
-            state = new Closed(this);
-            catsAllowed = 5;
+    public CatFlap(ArrayList<Cat> catList) {
+            this.catList = new ArrayList<>();
+            this.state = new Closed(this);
+            this.catsAllowed = 5;
+
+            for(Cat c : catList){
+                addCat(c);
+
         }
     }
 
