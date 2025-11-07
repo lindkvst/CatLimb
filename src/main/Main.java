@@ -9,7 +9,6 @@ public class Main {
     }
 
     static void runCatFlap() {
-
         Cat cat;
         Cat cat2;
         Cat cat3;
