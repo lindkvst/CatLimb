@@ -1,15 +1,11 @@
 package main;
 
-import util.CatFlapException;
-import util.CatFlapValidator;
 
 public class Cat {
     private String chipID;
 
-    public Cat (String chipID) throws CatFlapException {
-        if(chipID.isBlank())
-            throw new CatFlapException("ChipID must not be empty");
-        this.chipID = chipID;
+    public Cat (String chipID) {
+            this.chipID = chipID;
 
     }
 
