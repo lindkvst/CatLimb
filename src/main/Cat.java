@@ -13,4 +13,7 @@ public class Cat {
         return chipID;
     }
 
+    @Override
+    public String toString(){return this.chipID;}
+
 }

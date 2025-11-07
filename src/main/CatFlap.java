@@ -77,17 +77,19 @@ public class CatFlap {
             default:
                 throw new IllegalArgumentException("state is still " + this.state.getClass().getSimpleName());
         }
+        System.out.println("State is changed to: " + this.state.getClass().getSimpleName());
+
     }
 
-    public void CatEntry(Cat cat){
+    public void catEntry(Cat cat){
         if(state.enter(cat)){
             System.out.println(cat + " is allowed to enter!");
         }
         else{
-            System.out.println(cat + "is not allowed to enter!");
+            System.out.println(cat + " is not allowed to enter!");
         }
     }
-    public void CatExit(Cat cat){
+    public void catExit(Cat cat){
         if(state.exit(cat)){
             System.out.println(cat + " is allowed to exit!");
         }
