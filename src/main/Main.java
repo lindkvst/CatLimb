@@ -1,7 +1,5 @@
 package main;
 
-import States.Closed;
-
 public class Main {
     static void main() {
         runCatFlap();
