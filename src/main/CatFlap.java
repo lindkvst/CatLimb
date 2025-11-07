@@ -64,23 +64,21 @@ public class CatFlap {
         switch(newState){
             case "closed":
                 this.state = new Closed(this);
-                System.out.println("State is changed to: " + this.state.getClass().getSimpleName());
                 break;
             case "inonly":
                 this.state = new InOnly(this);
-                System.out.println("State is changed to: " + this.state.getClass().getSimpleName());
                 break;
             case "outonly":
                 this.state = new OutOnly(this);
-                System.out.println("State is changed to: " + this.state.getClass().getSimpleName());
                 break;
             case "open":
                 this.state = new Open(this);
-                System.out.println("State is changed to: " + this.state.getClass().getSimpleName());
                 break;
             default:
                 throw new IllegalArgumentException("state is still " + this.state.getClass().getSimpleName());
         }
+        System.out.println("State is changed to: " + this.state.getClass().getSimpleName());
+
     }
 
     public void catEntry(Cat cat){
